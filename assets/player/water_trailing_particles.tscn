@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlkulp33u3qb0"]
+
+[sub_resource type="Gradient" id="Gradient_ydspd"]
+colors = PackedColorArray(0.955611, 0.969852, 0.999999, 1, 0.126, 0.5852, 0.7, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_w5nx8"]
+gradient = SubResource("Gradient_ydspd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5j4a7"]
+lifetime_randomness = 0.5
+emission_shape = 3
+emission_box_extents = Vector3(4, 0.2, 0)
+spread = 10.0
+initial_velocity_min = -2.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+damping_min = 0.2
+damping_max = 0.5
+scale_min = 0.8
+color_initial_ramp = SubResource("GradientTexture1D_w5nx8")
+
+[node name="WaterTrailingParticles" type="GPUParticles2D"]
+position = Vector2(0, 3)
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_5j4a7")

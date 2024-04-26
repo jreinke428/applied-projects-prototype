@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://crcfmax422cye"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_wnbk7"]
+[ext_resource type="PackedScene" uid="uid://breijh3q3g8my" path="res://SteamSynchronizer.tscn" id="2_5abrj"]
+[ext_resource type="PackedScene" uid="uid://gew16wka3o4h" path="res://SteamVoice.tscn" id="3_lwlhv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kullv"]
+size = Vector2(32, 32)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_07rvx"]
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_wnbk7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kullv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(32, 32)
+texture = SubResource("PlaceholderTexture2D_07rvx")
+
+[node name="SteamSynchronizer" parent="." instance=ExtResource("2_5abrj")]
+node_path = NodePath("..")
+properties = Array[String](["position"])
+
+[node name="SteamVoice" parent="." instance=ExtResource("3_lwlhv")]

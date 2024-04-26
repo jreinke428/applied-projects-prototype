@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cqfllk4ov85gn"]
+
+[ext_resource type="Shader" path="res://assets/player/WaterShader.gdshader" id="1_3gvwb"]
+
+[resource]
+shader = ExtResource("1_3gvwb")
+shader_parameter/sprite_sheet_size = Vector2(96, 16)

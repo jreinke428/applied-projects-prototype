@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://breijh3q3g8my"]
+
+[ext_resource type="Script" path="res://ServerSynchronizer.gd" id="1_uqjmp"]
+
+[node name="ServerSynchronizer" type="Node"]
+script = ExtResource("1_uqjmp")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
