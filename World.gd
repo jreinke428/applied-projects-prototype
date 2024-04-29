@@ -14,7 +14,7 @@ var object_layer = 1
 var water_tileset = 1
 var grass_tileset = 0
 var object_tileset = 2
-var object_tiles = [Vector2i(0, 0), Vector2i(1, 1)]
+var object_tiles = [1, 2]
 var object_chance = 0.06
 
 func _ready():
@@ -49,6 +49,7 @@ func generate_terrain():
 				place_object.rpc(cell, tile)
 	
 	connect_terrain.rpc()
+	Signals.world_loaded.emit()
 	
 func set_boundaries():
 	for boundary in [[Vector2.ZERO, Vector2.RIGHT], [Vector2.ZERO, Vector2.DOWN], [world_size*16, Vector2.UP], [world_size*16, Vector2.LEFT]]:
@@ -85,7 +86,7 @@ func place_grass(coords):
 @rpc("any_peer", "call_local", "reliable")
 func place_object(coords, tile):
 	object_cells.append(coords)
-	set_cell(object_layer, coords, object_tileset, tile)
+	set_cell(object_layer, coords, object_tileset, Vector2i.ZERO, tile)
 	
 @rpc("any_peer", "call_local", "reliable")
 func connect_terrain():

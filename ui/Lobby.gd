@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 var lobby_members
 

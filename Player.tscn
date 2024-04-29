@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://crcfmax422cye"]
+[gd_scene load_steps=18 format=3 uid="uid://crcfmax422cye"]
 
 [ext_resource type="Material" uid="uid://cqfllk4ov85gn" path="res://assets/player/WaterMaterial.tres" id="1_efmjx"]
 [ext_resource type="Script" path="res://Player.gd" id="1_wnbk7"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dlkulp33u3qb0" path="res://assets/player/water_trailing_particles.tscn" id="3_61v6h"]
 [ext_resource type="PackedScene" uid="uid://gew16wka3o4h" path="res://ServerVoice.tscn" id="3_cgtqy"]
 [ext_resource type="PackedScene" uid="uid://b2l3qythvffu3" path="res://assets/player/water_particles.tscn" id="5_u4ngq"]
+[ext_resource type="Texture2D" uid="uid://dp8u3hrmxdcnm" path="res://assets/player/light.png" id="7_cryg3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e88re"]
 atlas = ExtResource("2_dmx7q")
@@ -137,3 +138,12 @@ limit_top = 0
 limit_right = 800
 limit_bottom = 800
 limit_smoothed = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+range_item_cull_mask = 3
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.8)
+shadow_filter = 2
+shadow_filter_smooth = 3.0
+texture = ExtResource("7_cryg3")
+texture_scale = 2.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dfnq23ltj2imp"]
+[gd_scene load_steps=8 format=3 uid="uid://dfnq23ltj2imp"]
 
 [ext_resource type="Script" path="res://Game.gd" id="1_jwlyg"]
 [ext_resource type="PackedScene" uid="uid://crcfmax422cye" path="res://Player.tscn" id="1_sdb0c"]
@@ -20,10 +20,16 @@ corner_radius_bottom_left = 16
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fopij"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_glqi7"]
+font_size = 8
+
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_jwlyg")
 player_scene = ExtResource("1_sdb0c")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.0431373, 0, 0.0941176, 1)
 
 [node name="World" parent="." instance=ExtResource("3_sk8vb")]
 
@@ -50,5 +56,27 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_fopij")
 toggle_mode = true
 button_pressed = true
 text = "🎙️"
+
+[node name="LoadingOverlay" type="ColorRect" parent="UILayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.109804, 0.117647, 0.152941, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="UILayer/LoadingOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UILayer/LoadingOverlay/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Generating World..."
+label_settings = SubResource("LabelSettings_glqi7")
 
 [connection signal="toggled" from="UILayer/Button" to="." method="_on_button_toggled"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://8jastuknp0ee"]
+[gd_scene load_steps=10 format=3 uid="uid://8jastuknp0ee"]
 
 [ext_resource type="Texture2D" uid="uid://d4ijaddgdmt1a" path="res://assets/world/grass-tile.png" id="1_0oy1g"]
 [ext_resource type="Texture2D" uid="uid://cprnmuv38ettw" path="res://assets/world/water-tiles.png" id="2_nxrb0"]
+[ext_resource type="PackedScene" uid="uid://c0sx1bve6sk" path="res://assets/world/tree.tscn" id="3_3ldye"]
 [ext_resource type="Script" path="res://World.gd" id="3_8gt7h"]
-[ext_resource type="Texture2D" uid="uid://ba6nu4hnvqrat" path="res://assets/world/objects.png" id="3_iyopx"]
+[ext_resource type="PackedScene" uid="uid://ndv6m8dyo24i" path="res://assets/world/rock.tscn" id="4_qcrpv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vsoqg"]
 texture = ExtResource("1_0oy1g")
@@ -447,25 +448,12 @@ texture = ExtResource("2_nxrb0")
 8:4/0/terrains_peering_bit/left_side = 0
 8:4/0/terrains_peering_bit/top_side = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yegy6"]
-texture = ExtResource("3_iyopx")
-0:0/size_in_atlas = Vector2i(1, 2)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(0, 8)
-0:0/0/probability = 0.04
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, 0, 4, 0, 4, 8, -4, 8)
-1:1/0 = 0
-1:1/0/probability = 0.04
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.33333, -2.66667, 5.33333, -2.66667, 5.33333, 5.33333, -5.33333, 5.33333)
-1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_htx4x"]
+scenes/1/scene = ExtResource("3_3ldye")
+scenes/2/scene = ExtResource("4_qcrpv")
 
 [sub_resource type="TileSet" id="TileSet_kbspo"]
+occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "water"
@@ -474,7 +462,7 @@ terrain_set_0/terrain_1/name = "grass"
 terrain_set_0/terrain_1/color = Color(0, 0.517647, 0.423529, 1)
 sources/1 = SubResource("TileSetAtlasSource_iyei7")
 sources/0 = SubResource("TileSetAtlasSource_vsoqg")
-sources/2 = SubResource("TileSetAtlasSource_yegy6")
+sources/2 = SubResource("TileSetScenesCollectionSource_htx4x")
 
 [node name="World" type="TileMap"]
 y_sort_enabled = true

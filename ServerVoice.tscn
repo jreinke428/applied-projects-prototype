@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://ServerVoice.gd" id="1_4exk1"]
 
 [sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_5u4m2"]
-mix_rate = 46000.0
+mix_rate = 48000.0
 buffer_length = 2.5
 
 [node name="ServerVoice" type="Node2D"]

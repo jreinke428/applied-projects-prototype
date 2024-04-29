@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0sx1bve6sk"]
+
+[ext_resource type="Texture2D" uid="uid://dktst1rdvtqnd" path="res://assets/world/tree.png" id="1_e42mf"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_brs18"]
+cull_mode = 1
+polygon = PackedVector2Array(-2, 10, -2, 16, 2, 16, 2, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ydmg"]
+size = Vector2(6, 9)
+
+[node name="Tree" type="StaticBody2D"]
+position = Vector2(0, -8)
+scale = Vector2(0.995155, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_e42mf")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(0, -1)
+occluder = SubResource("OccluderPolygon2D_brs18")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 11.5)
+shape = SubResource("RectangleShape2D_6ydmg")

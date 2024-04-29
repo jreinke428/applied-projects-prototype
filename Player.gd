@@ -53,4 +53,8 @@ func animate():
 
 func toggle_speaking(is_speaking):
 	$Speaking.visible = is_speaking
+	
+@rpc("any_peer", "call_local", "reliable")
+func set_pos(pos):
+	position = pos
 
